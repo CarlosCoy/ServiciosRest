@@ -35,6 +35,17 @@ public class ToDoController {
     }
 
     //Generar la petición para actualizar una tarea ya existente
+    @PostMapping("/update/{id}/{task}")
+    public String updateToDo(@PathVariable("id") int id, @PathVariable("task") String task){
+        return repo.updateTask(id,task);
+    }
 
     //Generar el método que permite eliminar una tarea
+
+    @PostMapping("/delete/{id}")
+    public String deleteToDo(@PathVariable("id") int id){
+        return repo.deleteTask(id);
+    }
+
+
 }
